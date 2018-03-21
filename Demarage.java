@@ -1,4 +1,4 @@
-package opti;
+package optimisation;
 
 
 import java.awt.Dimension;
