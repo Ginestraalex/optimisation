@@ -11,6 +11,8 @@ public class Modele {
 	private int tailleListeTabou;
 	private int taillePopulation;
 	private int probabiliteMutation;
+	private ArrayList<Processeur> listeProcess;
+	private Tache[] tabTache;
 	
 	
 	public Modele() {
