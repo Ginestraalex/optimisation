@@ -80,5 +80,10 @@ public class Etat {
 		}
 		return true;
 	}
+
+	public Etat successeur() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
