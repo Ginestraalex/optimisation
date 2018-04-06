@@ -36,5 +36,17 @@ public class Processeur {
 	public void supprimerTache(int index) {
 		listeTaches.remove(index);
 	}
+	
+	public boolean estEgal(Processeur p) {
+		if(listeTaches.size() != p.getNbTaches()) {
+			return false;
+		}
+		for(int i = 0 ; i < listeTaches.size() ; i++) {
+			if(!p.getTache(i).estEgal(listeTaches.get(i))) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 }

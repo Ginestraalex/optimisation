@@ -69,4 +69,16 @@ public class Etat {
 		return dureeMax;
 	}
 	
+	public boolean estEgal(Etat e) {
+		if(listeProc.length != e.listeProc.length) {
+			return false;
+		}
+		for(int i = 0 ; i < listeProc.length ; i++) {
+			if(!listeProc[i].estEgal(e.listeProc[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }

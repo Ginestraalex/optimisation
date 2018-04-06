@@ -45,4 +45,11 @@ public class Tache {
 		this.fin = over;
 	}
 	
+	public boolean estEgal(Tache t) {
+		if(num == t.num && time == t.time && dispo == t.dispo && fin == t.fin) {
+			return true;
+		}
+		return false;
+	}
+	
 }
