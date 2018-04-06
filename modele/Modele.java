@@ -116,4 +116,14 @@ public class Modele extends Observable{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void setIteration(int compteur) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRecuit(StringBuilder sb) {
+		// TODO Auto-generated method stub
+		
+	}
 }

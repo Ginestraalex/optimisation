@@ -24,5 +24,11 @@ public class Tache {
 		}
 		return false;
 	}
+
+
+	public String getNum() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
