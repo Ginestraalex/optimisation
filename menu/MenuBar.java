@@ -40,9 +40,9 @@ public class MenuBar extends JMenuBar implements Vue{
 		tailleListeTabou.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String res = (String)JOptionPane.showInputDialog(null, "Choisissez la taille de la liste tabou", "Choix taille liste", JOptionPane.QUESTION_MESSAGE);
+				String res = (String)JOptionPane.showInputDialog(null, "Choisissez le critere tabou", "Choix taille critere", JOptionPane.QUESTION_MESSAGE);
 				if(res != null) {
-					modele.setTailleListeTabou(Integer.parseInt(res));
+					modele.setCritereTabou(Integer.parseInt(res));
 				}
 			}
 		});
