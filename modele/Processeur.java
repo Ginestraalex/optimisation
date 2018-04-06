@@ -17,6 +17,10 @@ public class Processeur {
 		return listeTaches.get(index);
 	}
 	
+	public int getNbTaches() {
+		return listeTaches.size();
+	}
+	
 	public int getDureeTache() {
 		int duree = 0;
 		for(Tache t : listeTaches) {
@@ -27,6 +31,10 @@ public class Processeur {
 	
 	public ArrayList<Tache> getListe(){
 		return listeTaches;
+	}
+	
+	public void supprimerTache(int index) {
+		listeTaches.remove(index);
 	}
 
 }

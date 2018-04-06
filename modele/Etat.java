@@ -13,6 +13,17 @@ public class Etat {
 		}
 	}
 	
+	public Etat(Etat e) {
+		modele = e.modele;
+		listeProc = new Processeur[e.listeProc.length];
+		for(int i = 0 ; i < listeProc.length ; i++) {
+			listeProc[i] = new Processeur();
+			for(int j = 0 ; j < e.listeProc[i].getNbTaches() ; j++) {
+				listeProc[i].add(e.listeProc[i].getTache(j));
+			}
+		}
+	}
+	
 	
 	public int getNbProcesseur() {
 		return listeProc.length;
@@ -23,6 +34,15 @@ public class Etat {
 		if(numProc < listeProc.length) {
 			listeProc[numProc].add(task);
 		}
+	}
+	
+	public void supprimerTache(int indexProc, int indexTache) {
+		listeProc[indexProc].supprimerTache(indexTache);
+	}
+	
+	public void deplaceTache(int indexProcSupp, int indexTache, int indexProcAjout) {
+		listeProc[indexProcAjout].add(listeProc[indexProcSupp].getTache(indexTache));
+		listeProc[indexProcSupp].supprimerTache(indexTache);
 	}
 	
 	
