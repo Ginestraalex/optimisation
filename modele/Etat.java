@@ -50,6 +50,7 @@ public class Etat {
 		return listeProc[index].getDureeTache();
 	}
 	
+	
 	public int getDureeTotale() {
 		int dureeMax = 0;
 		for(Processeur p : listeProc) {
