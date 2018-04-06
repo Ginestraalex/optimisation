@@ -14,6 +14,9 @@ public class Tabou implements IAlgo{
 	
 	public Etat rechercher() {
 		Etat eInit = new Etat(modele);
+		for(int i = 0 ; i < modele.getNbTache() ; i++) {
+			eInit.listeProc[0].add(modele.getTache(i));
+		}
 		
 		return eInit;
 	}
