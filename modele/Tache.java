@@ -1,10 +1,12 @@
 package optimisation.modele;
 
 public class Tache {
+	private int noTache;
 	private int time; // durée de la tache
 	
-	public Tache(int tps) {
+	public Tache(int tps, int no) {
 		this.time = tps;
+		noTache = no;
 	}
 	
 
@@ -12,11 +14,18 @@ public class Tache {
 		return time;
 	}
 	
+	public int getNumTache() {
+		return noTache;
+	}
+	
 
 	public void setTime(int tps) {
 		this.time = tps;
 	}
 
+	public void setNumTache(int no) {
+		noTache = no;
+	}
 	
 	public boolean estEgal(Tache t) {
 		if( time == t.time ) {
@@ -31,4 +40,8 @@ public class Tache {
 		return null;
 	}
 	
+	
+	public String toString() {
+		return "T"+noTache+" ";
+	}
 }

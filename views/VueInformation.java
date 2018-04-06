@@ -28,7 +28,7 @@ public class VueInformation extends JPanel implements Observer{
 	
 	public void update(Observable o, Object arg) {
 		switch (algo) {
-		case genetique:
+		case tabou:
 			ite.setText("nombre d'itérations : " + mod.getIterationGenetique());
 			fonctionObj.setText("valeur de la fonction Objectif : " + mod.getTachesGenetique());
 			break;

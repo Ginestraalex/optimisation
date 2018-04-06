@@ -3,16 +3,17 @@ package optimisation.modele;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import optimisation.algo.Tabou;
 import optimisation.menu.Vue;
 
 public class Modele extends Observable{
 	public enum algo {
-		genetique, recuit
+		tabou, recuit
 	};
 
 	private ArrayList<Vue> listeVues;
 	private int temperature;
-	private int tailleListeTabou;
+	private int critereTabou;
 	private int taillePopulation;
 	private int probabiliteMutation;
 	private ArrayList<Processeur> listeProcess;
@@ -22,7 +23,7 @@ public class Modele extends Observable{
 	public Modele() {
 		listeVues = new ArrayList<Vue>();
 		temperature = 0;
-		tailleListeTabou = 0;
+		critereTabou = Integer.MAX_VALUE;
 		taillePopulation = 0;
 		probabiliteMutation = 0;
 	}
@@ -34,7 +35,7 @@ public class Modele extends Observable{
 		}
 		
 		temperature = 0;
-		tailleListeTabou = 0;
+		critereTabou = Integer.MAX_VALUE;
 		taillePopulation = 0;
 		probabiliteMutation = 0;
 	}
@@ -47,8 +48,8 @@ public class Modele extends Observable{
 		return temperature;
 	}
 	
-	public int getTailleListeTabou() {
-		return tailleListeTabou;
+	public int getCritereTabou() {
+		return critereTabou;
 	}
 	
 	public int getTaillePopulation() {
@@ -75,8 +76,8 @@ public class Modele extends Observable{
 		temperature = t;
 	}
 	
-	public void setTailleListeTabou(int t) {
-		tailleListeTabou = t;
+	public void setCritereTabou(int c) {
+		critereTabou = c;
 	}
 	
 	public void setTaillePopulation(int t) {
@@ -113,8 +114,10 @@ public class Modele extends Observable{
 	}
 
 	public void demarrerAlgo(algo enm) {
-		// TODO Auto-generated method stub
-		
+		if(enm == algo.tabou) {
+			Tabou tabou = new Tabou(this);
+			Etat eTemp = tabou.rechercher(critereTabou);
+		}
 	}
 
 	public void setIteration(int compteur) {
