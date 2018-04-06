@@ -35,7 +35,6 @@ public class VueRecuit extends JPanel implements Observer {
 	private VueInformation vi;
 	private Modele mod;
 
-	// TODO RAJOUTER LE MODELE
 
 	public VueRecuit(Modele mod) {
 		this.mod = mod;
