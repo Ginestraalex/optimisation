@@ -48,5 +48,13 @@ public class Processeur {
 		}
 		return true;
 	}
+	
+	public String toString() {
+		StringBuilder str = new StringBuilder("liste des taches: ");
+		for(int i = 0 ; i < listeTaches.size() ; i++) {
+			str .append(listeTaches.get(i).toString());
+		}
+		return str.toString();
+	}
 
 }

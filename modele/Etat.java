@@ -86,4 +86,13 @@ public class Etat {
 		return null;
 	}
 	
+	public String toString() {
+		StringBuilder str = new StringBuilder("Etat: \n");
+		for(int i = 0 ; i < listeProc.length ; i++) {
+			str.append("Processeur num "+i+" liste des taches: \n");
+			str.append(listeProc[i].toString());
+		}
+		return str.toString();
+	}
+	
 }

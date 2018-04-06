@@ -3,6 +3,7 @@ package optimisation.modele;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import optimisation.algo.Tabou;
 import optimisation.menu.Vue;
 
 public class Modele extends Observable{
@@ -113,7 +114,9 @@ public class Modele extends Observable{
 	}
 
 	public void demarrerAlgo(algo enm) {
-		// TODO Auto-generated method stub
-		
+		if(enm == algo.tabou) {
+			Tabou tabou = new Tabou(this);
+			Etat eTemp = tabou.rechercher(critereTabou);
+		}
 	}
 }

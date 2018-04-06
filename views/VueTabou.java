@@ -2,6 +2,7 @@ package optimisation.views;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
@@ -23,6 +24,7 @@ public class VueTabou extends JPanel implements Observer{
 	private JLabel critere;
 	private JTextField critereVal;
 	private JPanel jp;
+	
 	private VueInformation vi;
 	private Modele mod;
 
@@ -32,8 +34,12 @@ public class VueTabou extends JPanel implements Observer{
 		this.vt = new VueTaches(mod, Modele.algo.tabou);
 		vi = new VueInformation(mod, Modele.algo.tabou);
 		lancer = new JButton("Lancer");
-		lancer.setEnabled(false);
-		//lancer.addActionListener((ActionListener) new Ecouteur(mod, Modele.algo.tabou));
+		lancer.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mod.demarrerAlgo(Modele.algo.tabou);
+			}
+		});
 	
 		
 		critere = new JLabel("Taille du critere: ");
