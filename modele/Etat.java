@@ -45,6 +45,13 @@ public class Etat {
 		listeProc[indexProcSupp].supprimerTache(indexTache);
 	}
 	
+	public void echangerTache(int indexTache1, int indexProcSupp, int indexTache2, int indexProcAjout) {
+		listeProc[indexProcAjout].add(listeProc[indexProcSupp].getTache(indexTache1));
+		listeProc[indexProcSupp].add(listeProc[indexProcAjout].getTache(indexTache2));
+		listeProc[indexProcSupp].supprimerTache(indexTache1);
+		listeProc[indexProcAjout].supprimerTache(indexTache2);
+	}
+	
 	
 	public int getDureeProc(int index) {
 		return listeProc[index].getDureeTache();
