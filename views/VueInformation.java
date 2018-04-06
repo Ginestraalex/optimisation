@@ -33,7 +33,7 @@ public class VueInformation extends JPanel implements Observer{
 			fonctionObj.setText("valeur de la fonction Objectif : " + mod.getTachesGenetique());
 			break;
 		case recuit:
-			ite.setText("nombre d'itérations : " + mod.getIterationGenetique());
+			ite.setText("nombre d'itérations : " + mod.getIteration());
 			fonctionObj.setText("valeur de la fonction Objectif : " + mod.getTachesRecuit());
 			break;
 		}

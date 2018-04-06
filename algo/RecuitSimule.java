@@ -12,9 +12,11 @@ public class RecuitSimule implements IAlgo{
 	protected double temperature;
 	protected ArrayList<Processeur> evalMeilleur;
 	protected int limiteInf, limiteSup, nbProc, nbTache;
+	protected Modele mod;
 	
-	public RecuitSimule() {
-		this.temperature = 4000;
+	public RecuitSimule(int temp, Modele m) {
+		this.mod = m;
+		this.temperature = temp;
 		evalMeilleur = new ArrayList<>();
 		nbTache = 6;
 		nbProc = 2;
@@ -22,7 +24,8 @@ public class RecuitSimule implements IAlgo{
 		limiteSup = 20;
 	}
 	
-	public RecuitSimule(int temp, ArrayList<Processeur> proc) {
+	public RecuitSimule(int temp, ArrayList<Processeur> proc, Modele m) {
+		this.mod = m;
 		this.temperature = temp;
 		this.evalMeilleur = new ArrayList<>();
 		this.evalMeilleur = proc;
@@ -31,6 +34,53 @@ public class RecuitSimule implements IAlgo{
 		limiteInf = 0;
 		limiteSup = 20;
 	}	
+	public ArrayList<Processeur> recuitSimule() {
+		double diminution = 0.999;
+		int compteur= 0;
+		evalMeilleur = new ArrayList<>();
+		ArrayList<Processeur> evalCourant = new ArrayList<>();
+	
+		for (int i = 0; i < this.nbProc; i++)
+		{
+			this.evalMeilleur.add(new Processeur());
+			evalCourant.add(new Processeur());
+		}
+	
+		for (int i = 0; i < this.nbTache; i++){
+			int comparaison = this.limiteSup-this.limiteInf;
+			int duree = (int)(Math.random() * (comparaison)) + this.limiteInf;
+			this.evalMeilleur.get(0).add(new Tache(duree,i));
+			evalCourant.get(0).add(new Tache(duree,i));
+		}
+		
+		double tempera=this.temperature;
+		
+		while (tempera > 1) {
+			ArrayList<Processeur> procCourant =  voisin(evalCourant);
+	
+			int variation = getDureeTotale(procCourant) - getDureeTotale(evalCourant);
+			if ( variation < 0  || ( variation > 0 && Math.random() < Math.exp((-variation)/tempera) )) {
+				evalCourant = procCourant;
+			}
+			
+			if ( getDureeTotale(evalMeilleur) >  getDureeTotale(evalCourant) ) {
+				evalMeilleur = evalCourant;
+				StringBuilder sb = new StringBuilder();
+					sb.append(" \n \n itération  " + compteur +" :");
+					for ( Processeur p : evalMeilleur) {
+						sb.append("  \n processeur avec une duree total de " + p.getDureeTache()+ "\n");
+						for ( Tache t : p.getListe()) {
+							sb.append(" Tache " + t.getNum() +" :"+t.getTime()+"   ");
+						}
+					}
+					mod.setAction(sb);
+			}
+			compteur++;
+			tempera = tempera*diminution; 
+		}
+		mod.setIteration(compteur);
+		return evalMeilleur;
+	}
 	
 	public ArrayList<Processeur> recuitSimule(Modele mod,int nbTache, int nbProc, int temp, int borneInf, int borneSup) {
 		this.temperature = temp;
@@ -76,7 +126,7 @@ public class RecuitSimule implements IAlgo{
 							sb.append(" Tache " + t.getNum() +" :"+t.getTime()+"   ");
 						}
 					}
-					mod.setRecuit(sb);
+					mod.setAction(sb);
 			}
 			compteur++;
 			tempera = tempera*diminution; 

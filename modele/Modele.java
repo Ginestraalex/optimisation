@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import optimisation.algo.Tabou;
+import optimisation.algo.RecuitSimule;
 import optimisation.menu.Vue;
 
 public class Modele extends Observable{
@@ -18,9 +19,13 @@ public class Modele extends Observable{
 	private int probabiliteMutation;
 	private ArrayList<Processeur> listeProcess;
 	private Tache[] tabTache;
+	protected StringBuilder recuit;
+	protected int compt;
 	
 	
 	public Modele() {
+		recuit=new StringBuilder();
+		compt=0;
 		listeVues = new ArrayList<Vue>();
 		temperature = 0;
 		critereTabou = Integer.MAX_VALUE;
@@ -30,6 +35,8 @@ public class Modele extends Observable{
 	}
 	
 	public Modele(Vue... vues) {
+		recuit=new StringBuilder();
+		compt=0;
 		listeVues = new ArrayList<Vue>();
 		for(Vue v : vues) {
 			listeVues.add(v);
@@ -134,14 +141,43 @@ public class Modele extends Observable{
 			return null;
 		}
 	}
+	
+	public String demarrerAlgo2(algo enm) {
+		if(enm==algo.recuit) {
+			RecuitSimule recuitS = new RecuitSimule(temperature, this);
+			this.setRecuit(recuitS.recuitSimule());
+			return recuit.toString();
+		}
+		else {
+			return null;
+		}
+	}
 
 	public void setIteration(int compteur) {
 		// TODO Auto-generated method stub
-		
+		this.compt = compteur;
+	}
+	
+	public int getIteration() {
+		return compt;
+	}
+	
+	public void setAction(StringBuilder sp) {
+		recuit.append(sp);
 	}
 
-	public void setRecuit(StringBuilder sb) {
+	public void setRecuit(ArrayList<Processeur> liste) {
 		// TODO Auto-generated method stub
-		
+		for ( Processeur p : liste) {
+			recuit.append("\nproc  " + p.getDureeTache());
+			for ( Tache t : p.getListe()) {
+				recuit.append("   Tache  " + t.getTime());
+			}
+		}
 	}
+	
+	public StringBuilder getRecuit() {
+		return recuit;
+	}
+
 }

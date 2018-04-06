@@ -34,6 +34,7 @@ public class VueRecuit extends JPanel implements Observer {
 	private JPanel jp;
 	private VueInformation vi;
 	private Modele mod;
+	private JLabel resultat;
 
 
 	public VueRecuit(Modele mod) {
@@ -41,8 +42,13 @@ public class VueRecuit extends JPanel implements Observer {
 		this.vt = new VueTaches(mod, Modele.algo.recuit);
 		vi = new VueInformation(mod, Modele.algo.recuit);
 		lancer = new JButton("Lancer");
-		lancer.setEnabled(false);
-		//lancer.addActionListener((ActionListener) new Ecouteur(mod, Modele.algo.recuit));
+		//lancer.setEnabled(false);
+		lancer.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				resultat.setText(mod.demarrerAlgo2(Modele.algo.recuit).toString());
+			}
+		});
 		temp = new JLabel("Température: ");
 		tempVal = new JTextField();
 		tempVal.getDocument().addDocumentListener(new DocumentListener() {
