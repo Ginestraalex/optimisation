@@ -25,6 +25,8 @@ public class VueTabou extends JPanel implements Observer{
 	private JTextField critereVal;
 	private JPanel jp;
 	
+	private JLabel resultat;
+	
 	private VueInformation vi;
 	private Modele mod;
 
@@ -37,7 +39,7 @@ public class VueTabou extends JPanel implements Observer{
 		lancer.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mod.demarrerAlgo(Modele.algo.tabou);
+				resultat.setText(mod.demarrerAlgo(Modele.algo.tabou).toString());
 			}
 		});
 	
@@ -70,6 +72,9 @@ public class VueTabou extends JPanel implements Observer{
 			}
 			
 		});
+		
+		resultat = new JLabel("");
+		
 		this.setLayout(new BorderLayout());
 		jp = new JPanel();
 		jp.setLayout(new GridLayout(1, 3));
@@ -78,6 +83,7 @@ public class VueTabou extends JPanel implements Observer{
 		jp.add(lancer);
 		this.add(vt,BorderLayout.CENTER);
 		this.add(jp,BorderLayout.NORTH);
+		this.add(resultat, BorderLayout.SOUTH);
 		this.add(vi,BorderLayout.SOUTH);
 		mod.addObserver(this);
 	}

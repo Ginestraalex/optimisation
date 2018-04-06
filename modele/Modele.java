@@ -125,10 +125,13 @@ public class Modele extends Observable{
 		return null;
 	}
 
-	public void demarrerAlgo(algo enm) {
+	public Etat demarrerAlgo(algo enm) {
 		if(enm == algo.tabou) {
 			Tabou tabou = new Tabou(this);
-			Etat eTemp = tabou.rechercher(critereTabou);
+			return tabou.rechercher(critereTabou);
+		}
+		else {
+			return null;
 		}
 	}
 
