@@ -7,7 +7,7 @@ import optimisation.menu.Vue;
 
 public class Modele extends Observable{
 	public enum algo {
-		genetique, recuit
+		tabou, recuit
 	};
 
 	private ArrayList<Vue> listeVues;

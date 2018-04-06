@@ -43,6 +43,9 @@ public class Tabou implements IAlgo{
 			}
 			if(!aDesSuccesseur) {
 				i++;
+				if(i >= etatSol.listeProc.length) {
+					return etatSol;
+				}
 			}
 			else {
 				i = 0;

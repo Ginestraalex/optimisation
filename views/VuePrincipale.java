@@ -13,7 +13,7 @@ public class VuePrincipale extends JFrame{
 		super("Optimisation d'un clavier");
 		Modele mod = new Modele();
 		jtb1 = new JTabbedPane();
-		jtb1.add("Genetique", new VueGenetique(mod));
+		jtb1.add("Tabou", new VueTabou(mod));
 		jtb1.add("Recuit simulé", new VueRecuit(mod));
 		this.add(jtb1);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,9 +21,5 @@ public class VuePrincipale extends JFrame{
         setVisible(true);
         mod.update();
 	}
-	
-	public static void main(String[] args) {
-        //new VuePrincipale() ;
-    }
 
 }
