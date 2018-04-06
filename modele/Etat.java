@@ -25,4 +25,20 @@ public class Etat {
 		}
 	}
 	
+	
+	public int getDureeProc(int index) {
+		return listeProc[index].getDureeTache();
+	}
+	
+	public int getDureeTotale() {
+		int dureeMax = 0;
+		for(Processeur p : listeProc) {
+			int dureeTemp = p.getDureeTache();
+			if(dureeMax < dureeTemp) {
+				dureeMax = dureeTemp;
+			}
+		}
+		return dureeMax;
+	}
+	
 }

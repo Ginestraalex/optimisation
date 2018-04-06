@@ -17,6 +17,14 @@ public class Processeur {
 		return listeTaches.get(index);
 	}
 	
+	public int getDureeTache() {
+		int duree = 0;
+		for(Tache t : listeTaches) {
+			duree += t.getTime();
+		}
+		return duree;
+	}
+	
 	public ArrayList<Tache> getListe(){
 		return listeTaches;
 	}
