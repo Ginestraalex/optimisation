@@ -50,6 +50,9 @@ public class Modele extends Observable{
 	}
 	
 	public void initisalisationTache() {
+		listeProcess = new ArrayList<Processeur>();
+		listeProcess.add(new Processeur());
+		listeProcess.add(new Processeur());
 		tabTache = new Tache[6];
 		tabTache[0] = new Tache(5, 1);
 		tabTache[1] = new Tache(4, 2);
