@@ -26,6 +26,7 @@ public class Modele extends Observable{
 		critereTabou = Integer.MAX_VALUE;
 		taillePopulation = 0;
 		probabiliteMutation = 0;
+		initisalisationTache();
 	}
 	
 	public Modele(Vue... vues) {
@@ -38,6 +39,17 @@ public class Modele extends Observable{
 		critereTabou = Integer.MAX_VALUE;
 		taillePopulation = 0;
 		probabiliteMutation = 0;
+		initisalisationTache();
+	}
+	
+	public void initisalisationTache() {
+		tabTache = new Tache[6];
+		tabTache[0] = new Tache(5, 1);
+		tabTache[1] = new Tache(4, 2);
+		tabTache[2] = new Tache(3, 3);
+		tabTache[3] = new Tache(6, 4);
+		tabTache[0] = new Tache(5, 5);
+		tabTache[0] = new Tache(7, 6);
 	}
 	
 	public void addVue(Vue v) {
