@@ -63,6 +63,14 @@ public class Modele extends Observable{
 		return listeProcess.size();
 	}
 	
+	public int getNbTache() {
+		return tabTache.length;
+	}
+	
+	public Tache getTache(int index) {
+		return tabTache[index];
+	}
+	
 	public void setTemperature(int t) {
 		temperature = t;
 	}
