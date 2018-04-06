@@ -59,6 +59,10 @@ public class Modele extends Observable{
 		return probabiliteMutation;
 	}
 	
+	public int getNbProcesseur() {
+		return listeProcess.size();
+	}
+	
 	public void setTemperature(int t) {
 		temperature = t;
 	}
