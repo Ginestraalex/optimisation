@@ -7,11 +7,14 @@ import javax.swing.JFrame;
 
 import optimisation.menu.MenuBar;
 import optimisation.modele.Modele;
+import optimisation.views.VuePrincipale;
 
 public class Demarrage extends JFrame{
 
 
 	public Demarrage() {
+		new VuePrincipale();
+		/*
 		super("Optimisation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setPreferredSize(new Dimension(720, 480));
@@ -23,10 +26,11 @@ public class Demarrage extends JFrame{
 		setJMenuBar(menu);
 		
 		pack();
-		setVisible(true);
+		setVisible(true);*/
 	}
 	
 	public static void main(String... args) {
 		Demarrage dem = new Demarrage();
+	
 	}
 }

@@ -1,10 +1,14 @@
 package optimisation.modele;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 import optimisation.menu.Vue;
 
-public class Modele {
+public class Modele extends Observable{
+	public enum algo {
+		genetique, recuit
+	};
 
 	private ArrayList<Vue> listeVues;
 	private int temperature;
@@ -69,5 +73,35 @@ public class Modele {
 	
 	public void setProbabiliteMutation(int p) {
 		probabiliteMutation = p;
+	}
+
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getIterationGenetique() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getTachesGenetique() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setTmpCorrect(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getTachesRecuit() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void demarrerAlgo(algo enm) {
+		// TODO Auto-generated method stub
+		
 	}
 }
