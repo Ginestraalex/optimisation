@@ -17,11 +17,11 @@ public class Tabou implements IAlgo{
 	
 	public Etat rechercher(int critere) {
 		etatDejaTest = new ArrayList<Etat>();
-		Etat eInit = new Etat(modele);
+		Etat etatSol = new Etat(modele);
 		for(int i = 0 ; i < modele.getNbTache() ; i++) {
-			eInit.listeProc[0].add(modele.getTache(i));
+			etatSol.listeProc[0].add(modele.getTache(i));
+			System.out.println(modele.getTache(i).toString());
 		}
-		Etat etatSol = eInit;
 		etatDejaTest.add(etatSol);
 		
 		ArrayList<Etat> successeurs;
